@@ -1,18 +1,17 @@
 
-public class Persona {
+public class Persona extends Thread{
 
 	/**
 	 * @param nombre, apellido, cedula de la persona. 
 	 * 
 	 */
 	public String nombre;
-	public String apellido;
-	public String cedula;
+	public String mensaje;
 
-	public Persona(String n, String a, String c){
+	
+	public Persona(String n, String sms){
 		nombre=n;
-		apellido=a;
-		cedula=c;
+		mensaje=sms;
 	}
 	
 	
@@ -21,8 +20,8 @@ public class Persona {
      * 
      */
 	public String getNombre(){return(nombre);}
-	public String getApellido(){return(apellido);}
-	public String getCedula(){return(cedula);}
+	public String getMensaje(){return(mensaje);}
+	
 	/**
 	 * @metho metodos modificadores de la clase...
 	 */
@@ -30,10 +29,28 @@ public class Persona {
 	public void setNombre(String name){
 		nombre=name;
 	}
-	public void setApellido(String lastname){
-		apellido=lastname;
+	
+	public void setMensaje(String sms){
+		mensaje=sms;
 	}
-	public void setCedula(String ci){
-		cedula=ci;
+	
+	//Procesar Mensaje:
+	public void ProcesarMensaje(){
+		System.out.println("El mensaje de "+getNombre()+" es: "+getMensaje());
 	}
+	
+	public void run(){
+		DormirEnSegundos(3);
+		ProcesarMensaje();
+	}
+	
+	public void DormirEnSegundos(int segundos) {
+		try {
+			Thread.sleep(segundos * 1000);
+		} catch (InterruptedException ex) {
+			Thread.currentThread().interrupt();
+		}
+	}
+
 }
+
