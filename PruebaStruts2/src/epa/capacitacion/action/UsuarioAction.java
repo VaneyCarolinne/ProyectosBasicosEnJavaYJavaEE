@@ -15,23 +15,7 @@ public class UsuarioAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
 	private Usuario user;
 	private ArrayList<Usuario> vector;
-	
-	
-	/*
-	public String execute() {
-        return SUCCESS;
-    }
-	
-	public void validate() {
-		
-		if(user.getUser_login().isEmpty()) {
-			addFieldError("user_login", "ERROR: Login de usuario esta vacio...!");
-		}
-		if(user.getUser_password().isEmpty()) {
-			addFieldError("user_password", "ERROR: password del usuario vacio...!");
-		}
-	
-	} */
+
 
 	public ArrayList<Usuario> getVector() {
 		return vector;
@@ -52,16 +36,20 @@ public class UsuarioAction extends ActionSupport {
 	public String validar() {
 		String resp=ERROR;
 		
-		if((user.getUser_login().equals("EPA")||user.getUser_login().equals("epa"))&&user.getUser_password().equals("123")){
+		if((user.getUser_login().equals("EPA")||user.getUser_login().equals("epa")||user.getUser_login().equals("Epa"))&&user.getUser_password().equals("123")){
 			user.setUser_name("VaneyCaroline");
 			addActionMessage("Acceso Exitoso!");
 			resp=SUCCESS;
 		}else{
-			if(user.getUser_login().trim().length()==0||user.getUser_password().trim().length()==0) {
-				addActionError("ERROR: debe Ingresar algun dato.");
-			}else {
+			if(user.getUser_login().trim().length()==0)
+				addActionError("ERROR: El campo del login está vacío.");
+			if(user.getUser_password().trim().length()==0)
+				addActionError("ERROR: El campo de la contraseña está vacío");	
+			if( !(user.getUser_login().equals("EPA")||user.getUser_login().equals("epa")||user.getUser_login().equals("Epa")) && user.getUser_password().equals("123") ) 
 				addActionError("ERROR: El usuario y la contraseña no coinciden");
-			}
+			if( (user.getUser_login().equals("EPA")||user.getUser_login().equals("epa")||user.getUser_login().equals("Epa")) && !(user.getUser_password().equals("123")) ) 
+				addActionError("ERROR: El usuario y la contraseña no coinciden");
+			
 		}
 		
 		return resp;

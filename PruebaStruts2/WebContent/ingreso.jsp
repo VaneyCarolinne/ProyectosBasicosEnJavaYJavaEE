@@ -13,22 +13,21 @@
 </head>
 <body>
 	 <div class="login-container">
-  <div class="login-header">
-    <h1 title="login">Login</h1>
-    <p title="close">x</p>
-  </div>
-  <div class="login-form">
-    <s:form action ="validar">
-      <input id="tf"  type="text" placeholder="Username" name="user.user_login"/>
-      <br /><br />
-      <input id="tf" type="password" placeholder="Passowrd" name= "user.user_password" />
-      <br /><br />
-      <input id="sm" title="login" type="submit" value="Login" />
-    </s:form>
-  </div>
-</div>
+      <div class="login-header">
+       <h1 title="login">Login</h1>
+       <p title="close">x</p>
+     </div>
+     <div class="login-form">
+       <s:form action ="validar">
+        <input id="tf"  type="text" placeholder="Username" name="user.user_login"/>
+        <br /><br />
+        <input id="tf" type="password" placeholder="Passowrd" name= "user.user_password" />
+        <br /><br />
+        <input id="sm" title="login" type="submit" value="Login" />
+       </s:form>
+     </div>
+    </div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
-    <script  src="js/index.js"></script>
+  <script  src="js/index.js"></script>
 </body>
 </html>
