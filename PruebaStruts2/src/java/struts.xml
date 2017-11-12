@@ -1,0 +1,36 @@
+<!DOCTYPE struts PUBLIC 
+"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+"http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<package name="PruebaStruts2" extends="struts-default">
+	
+           
+		<action name="validar" method="validar" class="epa.capacitacion.control.Usuario_Controlador">
+			<result name="success"> /bienvenida.jsp </result>
+			<result name="error"> /Error.jsp </result>
+		</action>
+
+		
+		<action name="Listar_amigos" method="Listar_amigos" class="epa.capacitacion.control.Usuario_Controlador">
+			<result name="success"> /listado.jsp </result>
+		</action>
+                
+                <action name="Register" method="Register" class="epa.capacitacion.control.Usuario_Controlador">
+                    <result name="success"> /registro.jsp </result>
+                    <result name="error"> /Error.jsp </result>
+                </action>
+                
+                 <action name="modificar" method="modificar" class="epa.capacitacion.control.Usuario_Controlador">
+                    <result name="success"> /modificar.jsp </result>
+                    <result name="error"> /modificar.jsp </result>
+                </action>
+                
+                <action name="eliminar" method="eliminar" class="epa.capacitacion.control.Usuario_Controlador">
+                    <result name="success"> /eliminar.jsp </result>
+                    <result name="error"> /eliminar.jsp </result>
+                </action>
+                
+	</package>
+
+</struts>
